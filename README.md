@@ -1,2 +1,2 @@
 # angular-devfreela
-Aplicação Angular para interface da API DevFreela
+Aplicação Angular para interface de usuário da API DevFreela
