@@ -5,48 +5,50 @@
   padding-top: 2px;
   cursor: pointer;
   font-size: calc(var(--dv-font-size-base) + 8px);
-  font-family: var(--dv-font-family-base); 
-}
+  font-family: var(--dv-font-family-base);
 
-/* Esconde o radio button nativo do browser */
-.dv-radio > input {
-  opacity: 0;
-  position: absolute;
-  cursor: pointer;
-}
+  /* Esconde o radio button nativo do browser */
+  > input {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
 
-/* Estilo base do Checkmark */
-.dv-radio >.checkmark {
-  display: inline-block;
-  height: 22px;
-  width: 22px;
-  border-radius: 50%;
-  border: 2px solid var(--dv-color-gray-dark);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+    /* Estiliza e preenche fundo do Checkmark quando radio button é checado */
+    &:checked {
+      ~ .checkmark {
+        background-color: white;
+        border-color: var(--dv-color-primary);
 
-/* Estiliza e preenche fundo do Checkmark quando radio button é checado */
-.dv-radio > input:checked ~ .checkmark {
-  background-color: white;
-  border-color: var(--dv-color-primary);
-}
+        /* Mostra ponto quando radio button for checado */
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
 
-/* Estilo base do ponto */
-.dv-radio >.checkmark:after {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  position: absolute;
-  content: "";
-  top: 3px;
-  left: 3px;
-  background-color: var(--dv-color-primary);
-  display: none;
-}
+  /* Estilo base do Checkmark */
+  > .checkmark {
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--dv-color-gray-dark);
+    position: absolute;
+    top: 0;
+    left: 0;
 
-/* Mostra ponto quando radio button for checado */
-.dv-radio > input:checked ~ .checkmark:after {
-  display: block;
+    /* Estilo base do ponto */
+    &:after {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      position: absolute;
+      content: "";
+      top: 3px;
+      left: 3px;
+      background-color: var(--dv-color-primary);
+      display: none;
+    }
+  }
 }

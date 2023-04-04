@@ -1,5 +1,5 @@
 .dv-input {
-  font-family: var(--dv-font-family-base); 
+  font-family: var(--dv-font-family-base);
   font-size: calc(var(--dv-font-size-base) + 8px);
   border: none;
   background: none;
@@ -9,12 +9,12 @@
   padding-bottom: 10px;
   width: 100%;
   margin-bottom: 30px;
-}
 
-.dv-input:focus {
-  border-color: var(--dv-color-primary);
-}
+  &:focus {
+    border-color: var(--dv-color-primary);
+  }
 
-.dv-input::placeholder {
-  color: var(--dv-color-gray-dark);
+  &::placeholder {
+    color: var(--dv-color-gray-dark);
+  }
 }
