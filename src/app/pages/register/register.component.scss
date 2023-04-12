@@ -1,0 +1,59 @@
+.dv-register {
+  .left {
+    max-width: 350px;
+    margin: auto;
+
+    > .radio-buttons {
+      margin-bottom: 30px;
+
+      > .title {
+        font-size: calc(var(--dv-font-size-base) + 8px);
+        font-weight: 800;
+        margin-bottom: 16px;
+      }
+
+      > .buttons {
+        > .dv-radio {
+          margin-right: 70px;
+        }
+      }
+    }
+
+    > .main-title {
+      font-weight: 800;
+      margin-bottom: 20px;
+
+      > .up {
+        font-size: calc(var(--dv-font-size-base) + 30px);
+        display: block;
+        margin-bottom: 7px;
+      }
+
+      > .down {
+        font-size: calc(var(--dv-font-size-base) + 18px);
+      }
+    }
+
+    > .steps {
+      display: block;
+      font-weight: 800;
+      font-size: calc(var(--dv-font-size-base) + 4px);
+      color: var(--dv-color-gray);
+      margin-bottom: 13px;
+    }
+  }
+  .right {
+    overflow: hidden;
+    position: relative;
+    height: calc(100vh - var(--dv-header-size));
+
+    > .image {
+      position: absolute;
+      height: 100%;
+      min-width: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

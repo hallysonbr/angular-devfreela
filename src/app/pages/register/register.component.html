@@ -1,0 +1,76 @@
+<div class="dv-register">
+  <dv-wrapper>
+    <form class="left" (submit)="cadastrar()" action="javascript:void(0)">
+      <!-- <div class="dv-radio">
+        <label for="dev">Dev</label>
+        <input id="dev" type="radio" />
+      </div> -->
+
+      <h1 class="main-title">
+        <span class="up">Olá!</span>
+        <span class="down">Vamos criar seu cadastro.</span>
+      </h1>
+      <div class="radio-buttons">
+        <h3 class="title">Qual o seu perfil?</h3>
+        <div class="buttons">
+          <!--Criando Radio Button do zero-->
+          <label class="dv-radio">
+            Dev
+            <input name="cargo" type="radio" />
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="dv-radio">
+            Cliente
+            <input name="cargo" type="radio" />
+            <span class="checkmark"></span>
+          </label>
+
+          <!--Criando Check Box (Toogle) do zero-->
+          <!-- <label class="dv-toogle">
+            Ativo
+            <input name="check" type="checkbox" value="false" />
+            <span class="checkbox"></span>
+          </label> -->
+        </div>
+      </div>
+
+      <input
+        required
+        id="fullName"
+        class="dv-input"
+        placeholder="Nome Completo"
+      />
+      <input
+        required
+        id="birthDate"
+        type="date"
+        class="dv-input"
+        placeholder="Data de Nascimento"
+      />
+      <input
+        required
+        id="email"
+        type="email"
+        class="dv-input"
+        placeholder="Email"
+      />
+      <input
+        required
+        id="password"
+        type="password"
+        class="dv-input"
+        placeholder="Senha"
+      />
+
+      <dv-button text="Continuar"></dv-button>
+    </form>
+    <div class="right">
+      <img
+        class="image"
+        alt="Fundo de decoração com 3 cubos"
+        src="assets/image/bg-cubes.png"
+      />
+    </div>
+  </dv-wrapper>
+</div>

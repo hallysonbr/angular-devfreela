@@ -21,25 +21,25 @@
       text-decoration: none;
     }
 
-    > .left {
-      padding-top: 10px;
-      max-width: 350px;
-      margin: 0 auto;
-    }
+    // > .left {
+    //   padding-top: 10px;
+    //   max-width: 350px;
+    //   margin: 0 auto;
+    // }
 
-    > .right {
-      overflow: hidden;
-      position: relative;
-      height: calc(100vh - var(--dv-header-size));
+    // > .right {
+    //   overflow: hidden;
+    //   position: relative;
+    //   height: calc(100vh - var(--dv-header-size));
 
-      > .image {
-        position: absolute;
-        height: 100%;
-        min-width: 100%;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
+    //   > .image {
+    //     position: absolute;
+    //     height: 100%;
+    //     min-width: 100%;
+    //     top: 0;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //   }
+    // }
   }
 }
