@@ -1,6 +1,6 @@
 <div class="dv-register">
   <dv-wrapper>
-    <form class="left" (submit)="cadastrar()" action="javascript:void(0)">
+    <form class="left" (submit)="cadastrar()" [formGroup]="registerForm">
       <!-- <div class="dv-radio">
         <label for="dev">Dev</label>
         <input id="dev" type="radio" />
@@ -35,33 +35,25 @@
         </div>
       </div>
 
-      <input
-        required
-        id="fullName"
-        class="dv-input"
-        placeholder="Nome Completo"
-      />
-      <input
-        required
-        id="birthDate"
-        type="date"
-        class="dv-input"
-        placeholder="Data de Nascimento"
-      />
-      <input
-        required
-        id="email"
-        type="email"
-        class="dv-input"
-        placeholder="Email"
-      />
-      <input
-        required
-        id="password"
-        type="password"
-        class="dv-input"
-        placeholder="Senha"
-      />
+      <mat-form-field appearance="legacy">
+        <mat-label>Nome Completo</mat-label>
+        <input matInput formControlName="fullName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Data de Nascimento</mat-label>
+        <input type="date" matInput formControlName="birthDate" />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Senha</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
 
       <dv-button text="Continuar"></dv-button>
     </form>

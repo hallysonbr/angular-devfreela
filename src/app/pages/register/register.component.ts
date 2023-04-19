@@ -1,7 +1,7 @@
 //@ts-nocheck
-
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +10,15 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
+
+  registerForm: FormGroup = this.fb.group({
+    role: ['', [Validators.required]],
+    fullName: ['', [Validators.required]],
+    birthDate: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  })
 
   ngOnInit(): void {
   }
