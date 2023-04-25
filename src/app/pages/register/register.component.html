@@ -16,13 +16,13 @@
           <!--Criando Radio Button do zero-->
           <label class="dv-radio">
             Dev
-            <input name="cargo" type="radio" />
+            <input name="cargo" type="radio" (click)="toogleRole('dev')" />
             <span class="checkmark"></span>
           </label>
 
           <label class="dv-radio">
             Cliente
-            <input name="cargo" type="radio" />
+            <input name="cargo" type="radio" (click)="toogleRole('cliente')" />
             <span class="checkmark"></span>
           </label>
 
@@ -33,26 +33,44 @@
             <span class="checkbox"></span>
           </label> -->
         </div>
+        <span class="role-invalid" *ngIf="isInvalid('role', 'required')">{{
+          msg.role
+        }}</span>
       </div>
 
       <mat-form-field appearance="legacy">
         <mat-label>Nome Completo</mat-label>
         <input matInput formControlName="fullName" />
+        <mat-error *ngIf="isInvalid('fullName', 'required')">{{
+          msg.required
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
         <mat-label>Data de Nascimento</mat-label>
         <input type="date" matInput formControlName="birthDate" />
+        <mat-error *ngIf="isInvalid('birthDate', 'required')">{{
+          msg.required
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
         <mat-label>E-mail</mat-label>
         <input matInput formControlName="email" />
+        <mat-error *ngIf="isInvalid('email', 'required')">{{
+          msg.required
+        }}</mat-error>
+        <mat-error *ngIf="isInvalid('email', 'email')">{{
+          msg.email
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="legacy">
         <mat-label>Senha</mat-label>
         <input type="password" matInput formControlName="password" />
+        <mat-error *ngIf="isInvalid('password', 'required')">{{
+          msg.required
+        }}</mat-error>
       </mat-form-field>
 
       <dv-button text="Continuar"></dv-button>
