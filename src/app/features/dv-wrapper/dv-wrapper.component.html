@@ -1,6 +1,6 @@
 <div class="dv-wrapper">
   <dv-header></dv-header>
-  <main class="main-content">
+  <main class="main-content" [class.-one-col]="type === 'one-col'">
     <ng-content></ng-content>
   </main>
 </div>

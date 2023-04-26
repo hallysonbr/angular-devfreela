@@ -9,6 +9,13 @@
     font-size: calc(var(--dv-font-size-base) + 6px);
     font-weight: 600;
     color: var(--dv-color-gray-light);
+
+    > .row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 80px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
   }
 
   /* BODY */

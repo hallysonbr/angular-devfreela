@@ -8,7 +8,7 @@
     grid-template-columns: 1fr 1fr;
     padding-top: var(--dv-header-size);
 
-    &-one-col {
+    &.-one-col {
       grid-template-columns: 1fr;
     }
 
