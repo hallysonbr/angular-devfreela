@@ -3,13 +3,15 @@
     <div class="title-button">
       <h1 class="title">Projetos</h1>
       <div class="button-wrapper">
-        <a href="project-create-edit.html" class="dv-button -small"
-          >Novo Projeto</a
-        >
+        <dv-button
+          text="Novo Projeto"
+          (click)="redirectTo('project-create-edit')"
+        ></dv-button>
       </div>
     </div>
     <div class="table-wrapper">
-      <div class="dv-table">
+      <div class="loading" *ngIf="!isLoadedTable">Carregando Tabela...</div>
+      <div class="dv-table" *ngIf="isLoadedTable">
         <div class="head">
           <div class="row">
             <div>Titulo</div>
@@ -17,7 +19,31 @@
             <div>Ações</div>
           </div>
         </div>
-        <div class="body" id="table-body"></div>
+        <div class="body">
+          <div class="row" *ngFor="let listItem of list">
+            <div class="title-description">
+              <h6 class="title">{{ listItem.title }}</h6>
+              <p class="description">{{ listItem.description }}</p>
+            </div>
+            <div class="price">
+              {{ listItem.totalCost | currency }}
+            </div>
+            <div class="actions">
+              <span
+                class="edit material-icons"
+                (click)="
+                  redirectToWithParams('project-create-edit', listItem.id ?? '')
+                "
+                >edit</span
+              >
+              <span
+                class="delete material-icons"
+                (click)="deleteProject(listItem.id ?? '')"
+                >delete_outlined</span
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </dv-wrapper>

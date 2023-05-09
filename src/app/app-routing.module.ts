@@ -1,3 +1,4 @@
+import { ProjectCreateEditModule } from './pages/project-create-edit/project-create-edit.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./pages/list/list.module').then(m => m.ListModule)
+  },
+  {
+    path: 'project-create-edit',
+    loadChildren: () => import('./pages/project-create-edit/project-create-edit.module').then(m => m.ProjectCreateEditModule)
   }
 ];
 

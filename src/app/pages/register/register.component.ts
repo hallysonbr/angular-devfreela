@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { msg } from 'src/app/shared/utils/msg';
 import { RegisterService } from './services/register.service';
 import { IUser } from './interfaces/IUser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ import { IUser } from './interfaces/IUser';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService) { }
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router) { }
   msg = msg;
   registerForm: FormGroup = this.fb.group({
     role: ['', [Validators.required]],
@@ -58,7 +59,7 @@ export class RegisterComponent implements OnInit {
             localStorage.setItem('user.name', response.fullName);
             localStorage.setItem('role', response.role === 'Dev' ? 'Desenvolvedor' : 'Cliente');
             localStorage.setItem('clientId', response.id);
-            window.location.href = "list.html";
+            this.router.navigateByUrl('list')
           }
         })
       },

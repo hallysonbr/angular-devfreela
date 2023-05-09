@@ -19,13 +19,13 @@ export class DvHeaderComponent implements OnInit {
 
   buildHeader() {
     if(this.checkUserIsLogged()) {
-      this.user.name = localStorage.getItem("username") || '';
+      this.user.name = localStorage.getItem("user.name") || '';
       this.user.role = localStorage.getItem("role") || '';
     }
   }
 
   checkUserIsLogged(): boolean {
-    return localStorage.getItem("username") != null && localStorage.getItem("role") != null;
+    return localStorage.getItem("user.name") != null && localStorage.getItem("role") != null;
   }
 
 }

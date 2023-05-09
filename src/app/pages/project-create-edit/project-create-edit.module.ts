@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list.component';
-import { ListRoutingModule } from './list-routing.module';
+import { ProjectCreateEditComponent } from './project-create-edit.component';
+import { ProjectCreateEditRoutingModule } from './project-create-edit-routing.module';
 import { DvWrapperModule } from 'src/app/features/dv-wrapper/dv-wrapper.module';
 import { DvButtonModule } from 'src/app/shared/components/dv-button/dv-button.module';
 
@@ -9,13 +9,13 @@ import { DvButtonModule } from 'src/app/shared/components/dv-button/dv-button.mo
 
 @NgModule({
   declarations: [
-    ListComponent
+    ProjectCreateEditComponent
   ],
   imports: [
     CommonModule,
-    ListRoutingModule,
+    ProjectCreateEditRoutingModule,
     DvWrapperModule,
-    DvButtonModule,
+    DvButtonModule
   ]
 })
-export class ListModule { }
+export class ProjectCreateEditModule { }

@@ -1,0 +1,30 @@
+<div class="dv-project-create-edit">
+  <dv-wrapper back="list">
+    <form class="left">
+      <h1 class="main-title">{{ title }}</h1>
+
+      <input required id="title" class="dv-input" placeholder="Título" />
+      <input
+        required
+        id="totalCost"
+        class="dv-input"
+        placeholder="Custo Total"
+      />
+      <textarea
+        required
+        id="description"
+        class="dv-input"
+        placeholder="Descrição"
+      ></textarea>
+
+      <dv-button [text]="actionButtonText" (click)="createOrEdit()"></dv-button>
+    </form>
+    <div class="right">
+      <img
+        class="image"
+        alt="Fundo de decoração com 3 cubos"
+        src="assets/image/bg-float-cubes.png"
+      />
+    </div>
+  </dv-wrapper>
+</div>

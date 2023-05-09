@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IListItem } from './interfaces/IListItem';
 import { ListService } from './services/list.service';
+import { NavigationBehaviorOptions, Router } from '@angular/router';
+import { IProject } from 'src/app/shared/interfaces/IProject';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +9,10 @@ import { ListService } from './services/list.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  list: IListItem[] = [];
+  list: IProject[] = [];
+  isLoadedTable: boolean = false;
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProjects();
@@ -18,9 +20,10 @@ export class ListComponent implements OnInit {
 
   getProjects() {
     this.listService.getProjects().subscribe({
-      next: (response: IListItem[]) => {
-        this.list = response;
+      next: (response: IProject[]) => {
+        this.list.push(...response);
         this.buildTable();
+        this.isLoadedTable = true;
       },
       error: (error) => {
         console.log(error);
@@ -29,25 +32,37 @@ export class ListComponent implements OnInit {
   }
 
   buildTable() {
-    // document.querySelector('#table-body').innerHTML = "";
     const idClient = localStorage.getItem("clientId");
+    this.list = this.list.filter(el => el.idClient === idClient);
+  }
 
-    this.list = this.list.filter(el => el.idClient === idClient)
+  goToEdit(id: string) {
+    window.location.href = `project-create-edit.html?id=${id}`
+  }
 
-    this.list.forEach(element => {
-      let template = `<div class="row">
-                      <div class="title-description">
-                        <h6 class="title">${element.title}</h6>
-                        <p class="description">${element.description}</p>
-                      </div>
-                      <div class="price">R$ ${element.totalCost}</div>
-                      <div class="actions">
-                        <span class="edit material-icons" onclick="goToEdit(${element.id})">edit</span>
-                        <span class="delete material-icons" onclick="deleteProject(${element.id})">delete_outlined</span>
-                      </div>
-                    </div>`;
-
-      // document.querySelector('#table-body').insertAdjacentHTML("beforeend", template);
+  deleteProject(id: string) {
+    this.listService.deleteProject(id ?? '').subscribe({
+      next: (response) => {
+        this.list = this.list.filter(project => project.id != id);
+        this.buildTable();
+      },
+      error: (error) => {
+        alert('Erro no servidor!');
+        console.log(error);
+      }
     });
+  }
+
+  redirectTo(url: string) {
+    this.router.navigateByUrl(url);
+  }
+
+  redirectToWithParams(url: string, id: string) {
+    const dataParams: NavigationBehaviorOptions = {
+       state: {
+        id: id
+       }
+    }
+    this.router.navigate([url], dataParams);
   }
 }
